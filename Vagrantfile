@@ -6,7 +6,11 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "tierra" do |tierra|
     tierra.vm.network "private_network", ip: "192.168.57.103"
-    tierra.vm.provision "shell", name : "master", inline: <<-SHELL
+    tierra.vm.provision "shell", inline: <<-SHELL
+      apt-get update -y
+      apt-get install -y bind9 bind9-dnsutils
+    SHELL
+    tierra.vm.provision "shell", name: "master-dns" , inline: <<-SHELL
 
     SHELL
   end
