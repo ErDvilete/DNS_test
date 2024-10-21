@@ -9,6 +9,22 @@ $TTL	86400
 			 604800		; Refresh
 			  86400		; Retry
 			2419200		; Expire
-			  86400 )	; Negative Cache TTL
+			   7200 )	; Negative Cache TTL
 ;
-@	IN	NS	localhost.
+
+; Registros NS (servidores de nombres)
+@       IN    NS    tierra.sistema.test.
+@       IN    NS    venus.sistema.test.
+
+; Registros A (direcciones IP para los servidores de nombres)
+tierra  IN    A     192.168.57.103
+venus   IN    A     192.168.57.102
+marte   IN    A     192.168.57.104  
+
+; Registros CNAME (alias para los servidores)
+ns1     IN    CNAME tierra.sistema.test.
+ns2     IN    CNAME venus.sistema.test.
+mail    IN    CNAME marte.sistema.test.
+
+; Registro MX (servidor de correo para sistema.test)
+@       IN    MX    10 marte.sistema.test.
