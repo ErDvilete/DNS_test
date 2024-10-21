@@ -10,6 +10,7 @@ Vagrant.configure("2") do |config|
   SHELL
 
   config.vm.define "tierra" do |tierra|
+    tierra.vm.hostname = "tierra"
     tierra.vm.network "private_network", ip: "192.168.57.103"
     tierra.vm.provision "shell", name: "master-dns", inline: <<-SHELL
       cp -v /vagrant/named.conf.options /etc/bind/named.conf.options
@@ -24,6 +25,7 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.define "venus" do |venus|
+    venus.vm.hostname = "venus"
     venus.vm.network "private_network" , ip: "192.168.57.102"
     venus.vm.provision "shell", name: "slave", inline: <<-SHELL
       cp -v /vagrant/named /etc/default/named
