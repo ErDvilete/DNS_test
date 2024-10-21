@@ -15,6 +15,7 @@ $TTL	86400
 ; Registros NS (servidores de nombres)
 @       IN    NS    tierra.sistema.test.
 @       IN    NS    venus.sistema.test.
+@ 		IN	  NS 	marte.sistema.test
 
 ; Registros A (direcciones IP para los servidores de nombres)
 tierra  	IN    A     192.168.57.103
@@ -24,9 +25,9 @@ mercurio  	IN    A   	192.168.57.101
 
 
 ; Registros CNAME (alias para los servidores)
-ns1     IN    CNAME tierra.sistema.test.
-ns2     IN    CNAME venus.sistema.test.
-mail    IN    CNAME marte.sistema.test.
+ns1     IN    CNAME 	tierra.sistema.test.
+ns2     IN    CNAME 	venus.sistema.test.
+mail    IN    CNAME 	marte.sistema.test.
 
 ; Registro MX (servidor de correo para sistema.test)
 @       IN    MX    10 marte.sistema.test.
