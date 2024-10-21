@@ -24,6 +24,7 @@ Vagrant.configure("2") do |config|
     venus.vm.provision "shell", name: "slave", inline: <<-SHELL
       cp -v /vagrant/named /etc/default/named
       cp -v /vagrant/named.conf.options /etc/bind/named.conf.options
+      cp -v /vagrant/venus/named.conf.local /etc/bind/named.conf.local
     SHELL
   end
 end
