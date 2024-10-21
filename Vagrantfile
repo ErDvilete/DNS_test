@@ -23,6 +23,7 @@ Vagrant.configure("2") do |config|
     venus.vm.network "private_network" , ip: "192.168.57.102"
     venus.vm.provision "shell", name: "slave", inline: <<-SHELL
       cp -v /vagrant/named /etc/default/named
+      cp -v /vagrant/named.conf.options /etc/bind/named.conf.options
     SHELL
   end
 end
