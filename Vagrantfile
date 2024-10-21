@@ -11,8 +11,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "tierra" do |tierra|
     tierra.vm.network "private_network", ip: "192.168.57.103"
-    tierra.vm.provsion "shell", name: "master-dns", inline: <<-SHELL
-      cp -v /vagrant/named.conf.options /etc/bind/named.conf.options
+    tierra.vm.provision "shell", name: "master-dns", inline: <<-SHELL
+      cp -v /vagrant/tierra/named.conf.options /etc/bind/named.conf.options
+      cp -v /vagrant/tierra/named /etc/default/named
     SHELL
   end
 
