@@ -1,3 +1,7 @@
+acl confiables {
+	192.168.57.0/24;
+};
+
 options {
 	directory "/var/cache/bind";
 
@@ -13,6 +17,9 @@ options {
 	// forwarders {
 	// 	0.0.0.0;
 	// };
+
+	recursion yes;
+	allow-recursion {127.0.0.0/8;};
 
 	//========================================================================
 	// If BIND logs error messages about the root key being expired,
